@@ -6,6 +6,8 @@ I don't like it at all, because I think it prevents you from assessing whether t
 It is unfortunately impossible to deactivate the safelink feature (except for personal accounts I guess?), and this is where this extension comes in play.
 It replaces all occurrences of safelinks from emails displayed in Thunderbird, and replaces them by their original value.
 
+![Mail view with and without the extension.](/demonstration.png?raw=true "Mail view with and without the extension.")
+
 # Building
 
 In order to build this extension on Linux/MacOSX, execute these lines
