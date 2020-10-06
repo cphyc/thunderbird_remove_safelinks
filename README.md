@@ -8,6 +8,10 @@ It replaces all occurrences of safelinks from emails displayed in Thunderbird, a
 
 ![Mail view with and without the extension.](/demonstration.png?raw=true "Mail view with and without the extension.")
 
+# Installation
+
+Head to https://addons.thunderbird.net/en-GB/thunderbird/addon/safelink-removal/ and install the extension.
+
 # Building
 
 In order to build this extension on Linux/MacOSX, execute these lines
@@ -20,3 +24,5 @@ cd thunderbird_remove_safelinks
 npm install    # install the required files
 npm run build  # create the bundled extension, located in web-ext-artifacts/
 ```
+You can then install the extension by loading it directly in Thunderbird using the generated `.zip` file located in `thunderbird_remove_safelinks/web-ext-artifacts/`.
+Note that if you install this way, you need to manually update the repository, rebuild the extension and reload it in Thunderbird in order to update it.
