@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Safelink removal",
   "description": "Remove safelink protection from emails.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Corentin Cadiou",
   "applications": {
       "gecko": {
