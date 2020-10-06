@@ -14,6 +14,7 @@ In order to build this extension on Linux/MacOSX, execute these lines
 git clone https://github.com/cphyc/thunderbird_remove_safelinks.git
 # Move into the newly-created folder
 cd thunderbird_remove_safelinks
-# Pack everything using web-ext. The packed extension file is then located in web-ext-artifacts
-web-ext-build
+# We use node + npm to build the project
+npm install    # install the required files
+npm run build  # create the bundled extension, located in web-ext-artifacts/
 ```
