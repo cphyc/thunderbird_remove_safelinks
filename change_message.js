@@ -2,7 +2,7 @@ let outlook_regex = /https:\/\/\w+\.safelinks\.protection\.outlook\.com\/\?url=(
 let proofpoint_regex = new RegExp('https://urldefense(?:\.proofpoint)?\.com/(v[0-9])/');
 
 function safelinkDecoder (str) {
-    return str.replace(regex, (safelinkUri, encodedUri) => decodeURIComponent(encodedUri));
+    return str.replace(outlook_regex, (safelinkUri, encodedUri) => decodeURIComponent(encodedUri));
 }
 
 function proofPointDecoder (a) {
@@ -49,6 +49,8 @@ Array.prototype.forEach.call(
     links,
     link => {
         let href = link.getAttribute("href");
+        if (!href)
+            return;
         let originalSrc = link.getAttribute("originalsrc");
 
         // Decode what Outlook did
@@ -67,7 +69,8 @@ Array.prototype.forEach.call(
         }
 
         // Decode what ProofPoint did -- usually Outlook is the outer one
-        // if there are both.
+        // if there are both, since ProofPoint runs on an intermediate
+        // mail relay.
         let pphref = link.getAttribute("href");
         if (pphref.search(proofpoint_regex) > -1) {
             let decodedUri = proofPointDecoder(pphref);
