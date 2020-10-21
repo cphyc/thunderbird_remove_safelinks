@@ -1,8 +1,12 @@
-let outlook_regex = /https:\/\/\w+\.safelinks\.protection\.outlook\.com\/\?url=(\S+(?:\&amp;data))/g;
-let proofpoint_regex = new RegExp('https://urldefense(?:\.proofpoint)?\.com/(v[0-9])/');
+const proofpoint_regex = new RegExp('https://urldefense(?:\.proofpoint)?\.com/(v[0-9])/');
+const outlook_regex = /https:\/\/\w+\.safelinks\.protection\.outlook\.com\/\?url=(\S+?)(?:(?:\&amp;data.*)+$|$)/;
 
 function safelinkDecoder (a) {
-    return a.replace(outlook_regex, (safelinkUri, encodedUri) => decodeURIComponent(encodedUri));
+    let safelink = a.match(outlook_regex);
+    if (!safelink)
+        return a;
+    else
+        return decodeURIComponent(safelink[1]);
 }
 
 function proofPointDecoder (a) {
@@ -27,7 +31,7 @@ function proofPointDecoder (a) {
         let encbytes = atob(url[2].replace(/_/g, '/').replace(/-/g, '+'));
         let encbytes_off = 0;
 
-        outurl = url[1].replace(v3_token_pattern, (chunk) => {
+        outurl = url[1].replace(v3_token_pattern, chunk => {
             var len = 1;
             if (chunk.length > 1)
                len = length_codes.search(chunk[2]) + 2;

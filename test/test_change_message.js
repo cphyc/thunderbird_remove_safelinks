@@ -2,13 +2,6 @@ var assert = require('assert');
 var decoders = require("../src");
 
 describe('Decoder', function() {
-  before(function() {
-    global.document = {
-      body: {
-        getElementsByClassName: (anything) => []
-      }
-    }
-  });
   describe('#safeLink()', function() {
     let encoded_urls = [
       "https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fmochajs.org%2F%23getting-started&amp;data=04%7C01%7C%7C2f36b70a94f44000effb08d8760186f7%7C1faf88fea9984c5b93c9210a11d9a5c2%7C0%7C1%7C637389096241229831%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&amp;sdata=oCPIK9For1kcpd6Vog9%2FD0k6LGLW%2F9aZPU4T1pZdukQ%3D&amp;reserved=0",
