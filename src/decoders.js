@@ -1,8 +1,13 @@
-let outlook_regex = new RegExp('/https://\w+\.safelinks\.protection\.outlook\.com/\?url=(\S+)\&amp;data[^\s"\']*', "g");
+let outlook_regex = /https:\/\/\w+\.safelinks\.protection\.outlook\.com\/\?url=(\S+?)((?:\&amp;data.*)+$|$)/i;
 let proofpoint_regex = new RegExp('https://urldefense(?:\.proofpoint)?\.com/(v[0-9])/');
 
-function safelinkDecoder (str) {
-    return str.replace(outlook_regex, (safelinkUri, encodedUri) => decodeURIComponent(encodedUri));
+function safelinkDecoder (a) {
+    var safelink = a.match(outlook_regex);
+
+    if (!safelink)
+        return a
+
+    return decodeURIComponent(safelink[1]);
 }
 
 function proofPointDecoder (a) {
@@ -42,7 +47,11 @@ function proofPointDecoder (a) {
 
 module.exports = {
     safelinkDecoder: safelinkDecoder,
-    proofPOintDecoder: proofPointDecoder,
+    proofPointDecoder: proofPointDecoder,
     outlook_regex: outlook_regex,
     proofpoint_regex: proofpoint_regex
+}
+
+if (typeof browser !== 'undefined') {
+    browser.runtime.decoders = module.exports;
 }

@@ -1,6 +1,13 @@
-let myPromise = messenger.messageDisplayScripts.register({
-    js: [
-        { file: "/decoders.js" },
-        { file: "/change_message.js" }
-    ],
-});
+let myPromises = [
+    messenger.messageDisplayScripts.register({
+        js: [
+            { file: "/decoders.js" },
+
+        ],
+    }),
+    messenger.messageDisplayScripts.register({
+        js: [
+            { file: "/change_message.js" }
+        ],
+    })
+];

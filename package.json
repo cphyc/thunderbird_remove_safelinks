@@ -22,9 +22,10 @@
   },
   "homepage": "https://github.com/cphyc/thunderbird_remove_safelinks#readme",
   "webExt": {
-      "sourceDir": "src"
+    "sourceDir": "src"
   },
   "devDependencies": {
+    "atob": "^2.1.2",
     "mocha": "^8.2.0",
     "web-ext": "^5.3.0"
   }

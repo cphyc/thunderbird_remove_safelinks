@@ -1,5 +1,5 @@
 
-var decoders = require("./decoders");
+var decoders = browser.runtime.decoders;
 
 // Clean all links in <a> tags
 var links = document.body.getElementsByTagName("a");
@@ -23,7 +23,7 @@ Array.prototype.forEach.call(
             link.setAttribute("safelinkhref", href);
             link.setAttribute("href", decodedUri);
             link.setAttribute("title", "Decoded from: " + href);
-            link.textContent = safelinkDecoder(link.textContent);
+            link.textContent = decoders.safelinkDecoder(link.textContent);
         }
 
         // Decode what ProofPoint did -- usually Outlook is the outer one
