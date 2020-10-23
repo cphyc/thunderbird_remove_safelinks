@@ -1,10 +1,14 @@
 # Thunderbird remove safelinks
 
-When using Outlook as your mail provider, it mingles the links found in the email with a feature named "safelinks".
+A number of e-mail providers use a "URL mangling" service on links in emails,
+ostensibly to improve security, that redirects all links through a third-party
+checker service. The two most common such services are the "SafeLinks" service
+provided by Outlook and the "URLDefense" service provided by Proofpoint.
+
 I don't like it at all, because I think it prevents you from assessing whether the email points to a safe destination or not.
 
 It is unfortunately impossible to deactivate the safelink feature (except for personal accounts I guess?), and this is where this extension comes in play.
-It replaces all occurrences of safelinks from emails displayed in Thunderbird, and replaces them by their original value.
+It replaces all occurrences of Safelinks- and URLdefense-encoded links from emails displayed in Thunderbird, and replaces them by their original value.
 
 ![Mail view with and without the extension.](/demonstration.png?raw=true "Mail view with and without the extension.")
 
