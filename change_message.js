@@ -25,7 +25,7 @@ function proofPointDecoder (a) {
         let length_codes = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_';
         let url = a.match(v3_pattern);
         let encbytes = atob(url[2].replace(/_/g, '/').replace(/-/g, '+'));
-        var encbytes_off = 0;
+        let encbytes_off = 0;
 
         outurl = url[1].replace(v3_token_pattern, (chunk) => {
             var len = 1;
