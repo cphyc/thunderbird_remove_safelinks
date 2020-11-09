@@ -1,5 +1,4 @@
-
-var decoders = browser.runtime.decoders;
+var decoders = messenger.runtime.decoders;
 
 // Clean all links in <a> tags
 var links = document.body.getElementsByTagName("a");

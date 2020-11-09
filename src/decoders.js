@@ -45,13 +45,15 @@ function proofPointDecoder (a) {
     return outurl;
 }
 
-module.exports = {
+const module_exports = {
     safelinkDecoder: safelinkDecoder,
     proofPointDecoder: proofPointDecoder,
     outlook_regex: outlook_regex,
     proofpoint_regex: proofpoint_regex
-}
+};
 
-if (typeof browser !== 'undefined') {
-    browser.runtime.decoders = module.exports;
+if (typeof messenger !== 'undefined') {
+    messenger.runtime.decoders = module_exports;
+} else {
+    module.exports = module_exports;
 }
