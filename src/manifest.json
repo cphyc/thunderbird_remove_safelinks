@@ -12,7 +12,8 @@
   },
   "permissions": [
     "messagesRead",
-    "messagesModify"
+    "messagesModify",
+    "compose"
   ],
   "background": {
     "scripts": [
