@@ -1,5 +1,5 @@
-let outlook_regex = /https:\/\/\w+\.safelinks\.protection\.outlook\.com\/\?url=(\S+?)((?:\&amp;data.*)+$|$)/i;
-let proofpoint_regex = new RegExp('https://urldefense(?:\.proofpoint)?\.com/(v[0-9])/[^ ]+');
+let outlook_regex = /https:\/\/\w+\.safelinks\.protection\.outlook\.com\/\?url=((\.?[^&.,:\s]+)*)(&(\.?[-+a-zA-Z0-9%/=;]+)*)*/i;
+let proofpoint_regex = new RegExp('https://urldefense(?:\.proofpoint)?\.com/(v[0-9])/([.:]?[-+a-zA-Z0-9%&/=;_!?*$]+)+');
 
 function safelinkDecoder (a) {
     var safelink = a.match(outlook_regex);
